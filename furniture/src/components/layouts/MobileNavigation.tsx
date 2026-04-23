@@ -7,10 +7,6 @@ import {
     Sheet,
     SheetClose,
     SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -28,12 +24,14 @@ export default function MobileNavigation({ items }: MainNavigationProps) {
     return (
         <div className="lg:hidden">
             <Sheet>
+
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="ml-4 size-5">
                         <Icons.menu aria-hidden="true" />
                         <span className="sr-only">Toggle Menu</span>
                     </Button>
                 </SheetTrigger>
+
                 <SheetContent side="left" className="pt-9">
                     <SheetClose asChild>
                         <Link to="/" className="flex items-center space-x-2">
@@ -42,6 +40,7 @@ export default function MobileNavigation({ items }: MainNavigationProps) {
                             <span className="sr-only">Home</span>
                         </Link>
                     </SheetClose>
+
                     <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-8">
                         <Accordion
                             type="multiple"

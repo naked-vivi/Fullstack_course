@@ -1,8 +1,11 @@
 import { createBrowserRouter } from "react-router";
-import Contact from './pages/Contact';
-import Home from './pages/Home';
+import AboutPage from './pages/About';
+import HomePage from './pages/Home';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
+import BlogPage from "./pages/blogs/Blog";
+import BlogDetailPage from "./pages/blogs/BlogDetail";
+import BlogRootLayout from "./pages/blogs/BlogRootLayout";
 
 export const router = createBrowserRouter([
     {
@@ -12,12 +15,23 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: Home,
+                Component: HomePage,
             },
             {
-                path: "contact",
-                Component: Contact,
-            }
+                path: "about",
+                Component: AboutPage,
+            },
+            {
+                path: "blogs",
+                Component: BlogRootLayout,
+                children: [
+                    { index: true, Component: BlogPage },
+                    {
+                        path: ":postId",
+                        Component: BlogDetailPage,
+                    }]
+            },
+
         ]
     },
 ]);
