@@ -1,5 +1,5 @@
 import { HomeIcon, HamburgerMenuIcon, PaperPlaneIcon } from "@radix-ui/react-icons";
-
+import { Loader2 } from "lucide-react";
 // export type IconProps = React.SVGProps<SVGSVGElement>;
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -23,4 +23,5 @@ export const Icons = {
     home: HomeIcon,
     menu: HamburgerMenuIcon,
     paperPlane: PaperPlaneIcon,
+    spinner: Loader2,
 };
