@@ -5,9 +5,9 @@ import { NewsLetterForm } from "../news-letter"
 
 function Footer() {
     return (
-        <footer className="w-full border-t ml-4 lg:ml-0">
+        <footer className="w-full border-t">
             <div className="container mx-auto pb-8 pt-6 lg:py-6">
-                <section className="flex flex-col lg:flex-row gap-10 lg:gap-20">
+                <section className="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
                     <section>
                         <Link to="/" className="flex items-center gap-2">
                             <Icons.logo className="size-6" aria-hidden="true" />
