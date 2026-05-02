@@ -27,7 +27,7 @@ const Title = ({
 
 function Home() {
     return (
-        <div className="container mx-auto mt-16">
+        <div className="container mx-auto">
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 {/* text  */}
                 <div className="my-8 lg:mt-20 lg:mb-0 text-center lg:text-left lg:w-2/5">
