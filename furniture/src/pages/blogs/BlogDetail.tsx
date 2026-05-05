@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom"
 import { posts } from "@/data/posts"
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
+import RichTextRenderer from "@/components/blogs/RichTextRenderer"
 
 function BlogDetail() {
     const { postId } = useParams()
@@ -27,7 +28,7 @@ function BlogDetail() {
                             </div>
                             <h3 className="text-base font-normal my-6">{post.content}</h3>
                             <img src={post.image} alt={post.title} className="w-full rounded-xl" />
-                            <p className="">{post.body}</p>
+                            <RichTextRenderer content={post.body} className="my-8" />
                             <div className="mb-12 space-x-2">
                                 {post.tags.map((tag) => (
                                     <Button variant="secondary">
