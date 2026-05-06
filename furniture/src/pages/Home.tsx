@@ -5,8 +5,10 @@ import CarouselCard from "@/components/products/CarouselCard"
 import { products } from "@/data/products"
 import { posts } from "@/data/posts"
 import BlogCard from "@/components/blogs/BlogCard"
+import ProductCard from "@/components/products/ProductCard"
 
 const SamplePosts = posts.slice(0, 3);
+const SampleProducts = products.slice(0, 4);
 
 const Title = ({
     title,
@@ -52,6 +54,12 @@ function Home() {
                 <img src={Couch} alt="Couch" className="w-full lg:w-3/5" />
             </div>
             <CarouselCard products={products} />
+            <Title title="Featured Products" href="/products" sideText="View All Products" />
+            <div className="grid grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-4 md:px-0 gap-4">
+                {SampleProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
             <Title title="Recent Blog" href="/blog" sideText="View All Posts" />
             <BlogCard posts={SamplePosts} />
         </div>
