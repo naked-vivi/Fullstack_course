@@ -11,15 +11,16 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { formatPrice, cn } from "@/lib/utils"
 
-interface ProductCardProps {
+interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
     product: Product
 }
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, className }: ProductCardProps) {
     return (
-        <Card className="size-full overflow-hidden rounded-lg ">
+        <Card className={cn("size-full overflow-hidden rounded-lg ", className)}>
             <Link to={`/products/${product.id}`}>
-                <CardHeader className="border-b p-0">
+                <CardHeader className="border-b p-0 m-0">
                     <AspectRatio ratio={1 / 1} className="bg-muted">
                         <img src={product.images[0]}
                             alt="product image"
@@ -31,10 +32,10 @@ function ProductCard({ product }: ProductCardProps) {
                 <CardContent className="space-y-1.5 p-4">
                     <CardTitle className="line-clamp-1">{product.name}</CardTitle>
                     <CardDescription className="line-clamp-1">
-                        ${product.price}
+                        {formatPrice(product.price)}
                         {product.discount && (
                             <span className="ml-2 font-extralight line-through">
-                                ${product.discount}
+                                {formatPrice(product.discount)}
                             </span>
                         )}
                     </CardDescription>
