@@ -15,7 +15,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { formatPrice } from "@/lib/utils";
 import Rating from "@/components/products/Rating";
-
+import AddToFavorite from "@/components/products/AddToFavorite";
 
 
 function ProductDetail() {
@@ -55,10 +55,11 @@ function ProductDetail() {
                         <h2 className="line-clamp-1 text-2xl font-bold">{product?.name}</h2>
                         <p className="text-base text-muted-foreground">{formatPrice(Number(product?.price))}</p>
                     </div>
-                    <Separator className="my-1.5" />
+                    <Separator className="my-1.5" /> 
                     <p className="text-base text-muted-foreground">{product?.inventory} in stock</p>
                     <div className="flex items-center justify-between">
                         <Rating rating={Number(product?.rating)} />
+                        <AddToFavorite productId={String(product?.id)} rating={Number(product?.rating)} />
                     </div>
                 </div>
             </section>

@@ -6,7 +6,8 @@ import {
     ArrowLeftIcon,
     LayersIcon,
     PlusIcon,
-    StarIcon
+    StarIcon,
+    HeartIcon
 } from "@radix-ui/react-icons";
 import { Loader2 } from "lucide-react";
 // export type IconProps = React.SVGProps<SVGSVGElement>;
@@ -37,5 +38,6 @@ export const Icons = {
     arrowLeft: ArrowLeftIcon,
     layers: LayersIcon,
     plus: PlusIcon,
-    star: StarIcon
+    star: StarIcon,
+    heart: HeartIcon,
 };
