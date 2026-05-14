@@ -1,14 +1,20 @@
 import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
 import AboutPage from './pages/About';
 import HomePage from './pages/Home';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
-import BlogPage from "./pages/blogs/Blog";
-import BlogDetailPage from "./pages/blogs/BlogDetail";
-import BlogRootLayout from "./pages/blogs/BlogRootLayout";
+// import BlogPage from "./pages/blogs/Blog";
+// import BlogDetailPage from "./pages/blogs/BlogDetail";
+// import BlogRootLayout from "./pages/blogs/BlogRootLayout";
+const BlogPage = lazy(() => import("./pages/blogs/Blog"));
+const BlogDetailPage = lazy(() => import("./pages/blogs/BlogDetail"));
+const BlogRootLayout = lazy(() => import("./pages/blogs/BlogRootLayout"));
 import ProductPage from "./pages/products/Product";
 import ProductDetailPage from "./pages/products/ProductDetail";
 import ProductRootLayout from "./pages/products/ProductRootLayout";
+
+const SuspenseFallback = () => <div className="text-center">Loading...</div>
 
 export const router = createBrowserRouter([
     {
@@ -26,15 +32,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: "blogs",
-                Component: BlogRootLayout,
+                element: (
+                    <Suspense fallback={<SuspenseFallback />}>
+                        <BlogRootLayout />
+                    </Suspense>
+                ),
                 children: [
                     {
                         index: true,
-                        Component: BlogPage
+                        element: (
+                            <Suspense fallback={<SuspenseFallback />}>
+                                <BlogPage />
+                            </Suspense>
+                        ),
                     },
                     {
                         path: ":postId",
-                        Component: BlogDetailPage,
+                        element: (
+                            <Suspense fallback={<SuspenseFallback />}>
+                                <BlogDetailPage />
+                            </Suspense>
+                        ),
                     }]
             },
             {
