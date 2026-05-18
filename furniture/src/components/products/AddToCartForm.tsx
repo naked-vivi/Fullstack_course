@@ -61,12 +61,12 @@ export default function AddToCartForm({ canBuy }: canBuyProps) {
                         <Icons.plus className="size-3" />
                     </Button>
                 </div>
-                <div className="flex items-center space-x-2.5">
+                <div className="flex items-center space-x-2.5 ">
                     <Button
                         type="button"
                         aria-label="Buy now"
                         size="sm"
-                        className={cn("w-full bg-brand font-bold", !canBuy && "bg-slate-400")}
+                        className={cn("w-42 h-8 bg-brand font-bold", !canBuy && "bg-slate-400")}
                     >
                         Buy Now
                     </Button>
@@ -75,7 +75,7 @@ export default function AddToCartForm({ canBuy }: canBuyProps) {
                         aria-label="Add To Cart"
                         size="sm"
                         variant={canBuy ? "outline" : "default"}
-                        className="w-full font-semibold"
+                        className="w-42 h-8 font-semibold"
                     >
                         Add To Cart
                     </Button>

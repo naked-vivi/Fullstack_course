@@ -17,7 +17,12 @@ import { formatPrice } from "@/lib/utils";
 import Rating from "@/components/products/Rating";
 import AddToFavorite from "@/components/products/AddToFavorite";
 import AddToCartForm from "@/components/products/AddToCartForm";
-
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 
 function ProductDetail() {
     const { productId } = useParams();
@@ -63,6 +68,20 @@ function ProductDetail() {
                         <AddToFavorite productId={String(product?.id)} rating={Number(product?.rating)} />
                     </div>
                     <AddToCartForm canBuy={product?.status === "active"} />
+                    <Separator className="my-5" />
+                    <Accordion
+                        type="single"
+                        collapsible
+                        defaultValue="description"
+                        className="w-full"
+                    >
+                        <AccordionItem value="description" className="border-none">
+                            <AccordionTrigger>Description</AccordionTrigger>
+                            <AccordionContent>
+                                {product?.description ?? "No description is available for this product."}
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                 </div>
             </section>
             <section className="space-y-6 overflow-hidden">
