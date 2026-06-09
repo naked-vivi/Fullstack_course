@@ -49,3 +49,17 @@ export interface User {
     email: string,
     imageUrl: string,
 };
+
+export interface Cart {
+    id: string,
+    name: string,
+    price: number,
+    quantity: number,
+    image: {
+        id: string,
+        name: string,
+        url: string,
+    },
+    category: string,
+    subcategory: string,
+}

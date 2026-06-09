@@ -12,6 +12,7 @@ import {
     DashboardIcon,
     GearIcon,
     ExitIcon,
+    TrashIcon,
 } from "@radix-ui/react-icons";
 import { Loader2 } from "lucide-react";
 // export type IconProps = React.SVGProps<SVGSVGElement>;
@@ -64,4 +65,5 @@ export const Icons = {
     dashboard: DashboardIcon,
     gear: GearIcon,
     exit: ExitIcon,
+    trash: TrashIcon,
 };
